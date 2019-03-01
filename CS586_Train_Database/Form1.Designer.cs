@@ -94,6 +94,7 @@
             // 
             // find_button
             // 
+            this.find_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.find_button.Enabled = false;
             this.find_button.Location = new System.Drawing.Point(391, 126);
             this.find_button.Name = "find_button";
@@ -105,6 +106,8 @@
             // 
             // search_box
             // 
+            this.search_box.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.search_box.Enabled = false;
             this.search_box.Location = new System.Drawing.Point(242, 130);
             this.search_box.Name = "search_box";

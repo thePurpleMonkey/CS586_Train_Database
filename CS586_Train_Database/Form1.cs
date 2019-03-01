@@ -23,28 +23,32 @@ namespace CS586_Train_Database
 
         private async void connect_button_Click(object sender, EventArgs e)
         {
-            // Build connection string
-            NpgsqlConnectionStringBuilder builder = new NpgsqlConnectionStringBuilder();
-            builder.Host = "dbclass.cs.pdx.edu";
-            builder.Database = "w19wdb19";
-            builder.Username = "w19wdb19";
-            builder.Passfile = GetPassfilePath();
-            builder.SslMode = SslMode.Require;
-            builder.TrustServerCertificate = true;
-
-            // Check for password file
-            if (builder.Passfile == null)
+            if (conn == null)
             {
-                MessageBox.Show(@"PostgreSQL password file not found! Please create a password file at %APPDATA%\postgresql\pgpass.conf (where %APPDATA% refers to the Application Data subdirectory in the user's profile).", "ERROR: No password file found", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                status_label.Text = "No password file!";
-                status_label.ForeColor = Color.Red;
-                return;
+                // Build connection string
+                NpgsqlConnectionStringBuilder builder = new NpgsqlConnectionStringBuilder();
+                builder.Host = "dbclass.cs.pdx.edu";
+                builder.Database = "w19wdb19";
+                builder.Username = "w19wdb19";
+                builder.Passfile = GetPassfilePath();
+                builder.SslMode = SslMode.Require;
+                builder.TrustServerCertificate = true;
+
+                // Check for password file
+                if (builder.Passfile == null)
+                {
+                    MessageBox.Show(@"PostgreSQL password file not found! Please create a password file at %APPDATA%\postgresql\pgpass.conf (where %APPDATA% refers to the Application Data subdirectory in the user's profile).", "ERROR: No password file found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    status_label.Text = "No password file!";
+                    status_label.ForeColor = Color.Red;
+                    return;
+                }
+
+                // Create connection object
+                conn = new NpgsqlConnection(builder.ConnectionString);
             }
 
             update_status("Connecting...", Color.DarkKhaki);
             connect_button.Enabled = false;
-
-            conn = new NpgsqlConnection(builder.ConnectionString);
 
             try
             {
