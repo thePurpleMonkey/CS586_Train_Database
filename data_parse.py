@@ -12,6 +12,9 @@ rows = []
 
 print("Parsing data...")
 for station in data["features"]:
+	if station["properties"]["STNTYPE"] != "RAIL":
+		continue
+
 	row = {
 		"code": station["properties"]["STNCODE"],
 		"name": station["properties"]["STNNAME"],
