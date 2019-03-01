@@ -65,6 +65,12 @@ namespace CS586_Train_Database
                 MessageBox.Show("Unable to connect to database. Please make sure VPN is enabled and try again.", "ERROR: Unable to connect to database", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 connect_button.Enabled = true;
             }
+            catch (TimeoutException)
+            {
+                update_status("Timeout: unable to connect.", Color.Red);
+                MessageBox.Show("Connecting to the database is timed out. Please make sure VPN is enabled and try again.", "ERROR: Unable to connect to database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                connect_button.Enabled = true;
+            }
         }
 
         private string GetPassfilePath()
