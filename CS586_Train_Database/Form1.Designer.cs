@@ -35,6 +35,7 @@
             this.grid = new System.Windows.Forms.DataGridView();
             this.find_button = new System.Windows.Forms.Button();
             this.search_box = new System.Windows.Forms.TextBox();
+            this.error_label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -116,11 +117,23 @@
             this.search_box.KeyDown += new System.Windows.Forms.KeyEventHandler(this.search_box_KeyDown);
             this.search_box.KeyUp += new System.Windows.Forms.KeyEventHandler(this.search_box_KeyUp);
             // 
+            // error_label
+            // 
+            this.error_label.AutoSize = true;
+            this.error_label.ForeColor = System.Drawing.Color.Red;
+            this.error_label.Location = new System.Drawing.Point(12, 73);
+            this.error_label.Name = "error_label";
+            this.error_label.Size = new System.Drawing.Size(51, 20);
+            this.error_label.TabIndex = 7;
+            this.error_label.Text = "label2";
+            this.error_label.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(529, 446);
+            this.Controls.Add(this.error_label);
             this.Controls.Add(this.search_box);
             this.Controls.Add(this.find_button);
             this.Controls.Add(this.grid);
@@ -146,6 +159,7 @@
         private System.Windows.Forms.DataGridView grid;
         private System.Windows.Forms.Button find_button;
         private System.Windows.Forms.TextBox search_box;
+        private System.Windows.Forms.Label error_label;
     }
 }
 

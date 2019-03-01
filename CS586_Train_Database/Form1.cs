@@ -58,17 +58,30 @@ namespace CS586_Train_Database
                 load_stations_button.Enabled = true;
                 find_button.Enabled = true;
                 search_box.Enabled = true;
+                error_label.Visible = false;
             }
-            catch (NpgsqlException)
+            catch (NpgsqlException ex)
             {
                 update_status("Unable to connect.", Color.Red);
+                error_label.Text = ex.Message;
+                error_label.Visible = true;
                 MessageBox.Show("Unable to connect to database. Please make sure VPN is enabled and try again.", "ERROR: Unable to connect to database", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 connect_button.Enabled = true;
             }
-            catch (TimeoutException)
+            catch (TimeoutException ex)
             {
                 update_status("Timeout: unable to connect.", Color.Red);
+                error_label.Text = ex.Message;
+                error_label.Visible = true;
                 MessageBox.Show("Connecting to the database is timed out. Please make sure VPN is enabled and try again.", "ERROR: Unable to connect to database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                connect_button.Enabled = true;
+            }
+            catch (System.Net.Sockets.SocketException ex)
+            {
+                update_status("Network error: unable to connect.", Color.Red);
+                error_label.Text = ex.Message;
+                error_label.Visible = true;
+                MessageBox.Show("Unable to connect to database. Please make sure you can connect to the internet and try again.", "ERROR: Unable to connect to database", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 connect_button.Enabled = true;
             }
         }
