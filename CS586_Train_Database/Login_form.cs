@@ -12,11 +12,11 @@ using System.Windows.Forms;
 
 namespace CS586_Train_Database
 {
-    public partial class Form2 : Form
+    public partial class Login_form : Form
     {
         NpgsqlConnection conn;
 
-        public Form2()
+        public Login_form()
         {
             InitializeComponent();
         }
@@ -62,13 +62,14 @@ namespace CS586_Train_Database
             try
             {
                 conn.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT count(*) FROM train.user where email = '" + textBox1.Text + "'and password = '" + textBox2.Text + "'", conn);
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT count(*) FROM train.user where email = '" + email_txt.Text + "'and password = '" + Password_txt.Text + "'", conn);
                 Int64 count = (Int64)cmd.ExecuteScalar();
                 if (count == 1)
                 {
-                    this.Hide();
+                    this.Visible = false;
                     Form1 f1 = new Form1();
                     f1.ShowDialog();
+                    this.Close();
                 }
                 else
                 {
@@ -83,9 +84,21 @@ namespace CS586_Train_Database
             }
                 
             }
-        
+
+        private void Registration_button_Click(object sender, EventArgs e)
+        {
+            this.Visible=false;
+            Registration_form Reg1 = new Registration_form();
+            Reg1.ShowDialog();
+            this.Visible = true;
+        }
 
         private void label3_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Login_form_Load(object sender, EventArgs e)
         {
 
         }
