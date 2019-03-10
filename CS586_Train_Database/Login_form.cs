@@ -78,9 +78,12 @@ namespace CS586_Train_Database
                 }
 
             }
-            catch
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 MessageBox.Show("Unable to connect to database. Please make sure VPN is enabled and try again.", "ERROR: Unable to connect to database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                conn.Close();
+                this.Close();
             }
                 
             }

@@ -1,4 +1,5 @@
-﻿using Npgsql;
+﻿using Newtonsoft.Json;
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -114,8 +116,27 @@ namespace CS586_Train_Database
                 stations_listBox.DataSource = dt;
             }
 
-            MessageBox.Show("Hello");
             stations_group.Visible = true;
+        }
+
+        private void station_select_Click(object sender, EventArgs e)
+        {
+            string station = (string) stations_listBox.SelectedValue;
+
+            using (WebClient wc = new WebClient())
+            {
+                wc.QueryString["station"] = station;
+                string data = wc.DownloadString("https://asm.transitdocs.com/api/stationDepartures.php");
+
+                StationDepartures departures = JsonConvert.DeserializeObject<StationDepartures>(data);
+
+                foreach (Train t in departures.trains)
+                {
+                    trains_listBox.Items.Add(t);
+                }
+            }
+
+            trains_group.Visible = true;
         }
     }
 }

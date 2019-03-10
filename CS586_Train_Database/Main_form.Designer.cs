@@ -37,9 +37,14 @@
             this.stations_listBox = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.route_select = new System.Windows.Forms.Button();
+            this.station_select = new System.Windows.Forms.Button();
+            this.trains_group = new System.Windows.Forms.GroupBox();
+            this.train_select = new System.Windows.Forms.Button();
+            this.trains_listBox = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.stations_group.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.trains_group.SuspendLayout();
             this.SuspendLayout();
             // 
             // load_stations_button
@@ -103,6 +108,7 @@
             // 
             // stations_group
             // 
+            this.stations_group.Controls.Add(this.station_select);
             this.stations_group.Controls.Add(this.stations_listBox);
             this.stations_group.Location = new System.Drawing.Point(288, 12);
             this.stations_group.Name = "stations_group";
@@ -145,11 +151,55 @@
             this.route_select.UseVisualStyleBackColor = true;
             this.route_select.Click += new System.EventHandler(this.route_select_Click);
             // 
+            // station_select
+            // 
+            this.station_select.Location = new System.Drawing.Point(98, 295);
+            this.station_select.Name = "station_select";
+            this.station_select.Size = new System.Drawing.Size(75, 30);
+            this.station_select.TabIndex = 9;
+            this.station_select.Text = "Select";
+            this.station_select.UseVisualStyleBackColor = true;
+            this.station_select.Click += new System.EventHandler(this.station_select_Click);
+            // 
+            // trains_group
+            // 
+            this.trains_group.Controls.Add(this.train_select);
+            this.trains_group.Controls.Add(this.trains_listBox);
+            this.trains_group.Location = new System.Drawing.Point(564, 12);
+            this.trains_group.Name = "trains_group";
+            this.trains_group.Size = new System.Drawing.Size(270, 331);
+            this.trains_group.TabIndex = 10;
+            this.trains_group.TabStop = false;
+            this.trains_group.Text = "Trains";
+            this.trains_group.Visible = false;
+            // 
+            // train_select
+            // 
+            this.train_select.Location = new System.Drawing.Point(98, 295);
+            this.train_select.Name = "train_select";
+            this.train_select.Size = new System.Drawing.Size(75, 30);
+            this.train_select.TabIndex = 9;
+            this.train_select.Text = "Select";
+            this.train_select.UseVisualStyleBackColor = true;
+            // 
+            // trains_listBox
+            // 
+            this.trains_listBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.trains_listBox.FormattingEnabled = true;
+            this.trains_listBox.ItemHeight = 20;
+            this.trains_listBox.Location = new System.Drawing.Point(6, 25);
+            this.trains_listBox.Name = "trains_listBox";
+            this.trains_listBox.Size = new System.Drawing.Size(258, 264);
+            this.trains_listBox.TabIndex = 8;
+            // 
             // Main_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(998, 592);
+            this.Controls.Add(this.trains_group);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.stations_group);
             this.Controls.Add(this.search_box);
@@ -163,6 +213,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.stations_group.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.trains_group.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,6 +229,10 @@
         private System.Windows.Forms.ListBox stations_listBox;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button route_select;
+        private System.Windows.Forms.Button station_select;
+        private System.Windows.Forms.GroupBox trains_group;
+        private System.Windows.Forms.Button train_select;
+        private System.Windows.Forms.ListBox trains_listBox;
     }
 }
 
