@@ -8,20 +8,20 @@ namespace CS586_Train_Database
 {
     class Train
     {
-        string destination;
-        string destination_code;
-        double lat;
-        double lon;
-        string name;
-        short number;
-        string origin;
-        string origin_code;
-        string or_date;
-        float speed;
+        public string destination;
+        public string destination_code;
+        public double lat;
+        public double lon;
+        public string Name;
+        public short Number;
+        public string origin;
+        public string origin_code;
+        public string or_date;
+        public float speed;
 
         public override string ToString()
         {
-            return number + " " + name + " -> " + destination;
+            return Number + " " + Name + " to " + destination;
         }
     }
 }

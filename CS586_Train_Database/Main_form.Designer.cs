@@ -188,6 +188,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.trains_listBox.FormattingEnabled = true;
+            this.trains_listBox.HorizontalScrollbar = true;
             this.trains_listBox.ItemHeight = 20;
             this.trains_listBox.Location = new System.Drawing.Point(6, 25);
             this.trains_listBox.Name = "trains_listBox";
