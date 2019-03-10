@@ -67,7 +67,7 @@ namespace CS586_Train_Database
                 if (count == 1)
                 {
                     this.Visible = false;
-                    Form1 f1 = new Form1();
+                    Main_form f1 = new Main_form(conn);
                     f1.ShowDialog();
                     this.Close();
                 }
