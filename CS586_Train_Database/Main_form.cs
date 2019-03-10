@@ -88,6 +88,7 @@ namespace CS586_Train_Database
 
         private void Main_form_Load(object sender, EventArgs e)
         {
+            // Populate routes
             using (var cmd = new NpgsqlCommand("SELECT number || ' - ' || name AS display, number FROM train.route ORDER BY number", conn))
             {
                 DataTable dt = new DataTable();
@@ -141,6 +142,11 @@ namespace CS586_Train_Database
             }
 
             trains_group.Visible = true;
+        }
+
+        private void train_select_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Allow the user to create an alert", "Create alert");
         }
     }
 }

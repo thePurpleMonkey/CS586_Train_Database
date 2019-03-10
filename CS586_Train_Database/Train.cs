@@ -18,10 +18,14 @@ namespace CS586_Train_Database
         public string origin_code;
         public string or_date;
         public float speed;
+        public string sch_arr;
+        public string sch_dep;
+        public string local_date;
+
 
         public override string ToString()
         {
-            return Number + " " + Name + " to " + destination;
+            return local_date + " " + sch_arr;
         }
     }
 }

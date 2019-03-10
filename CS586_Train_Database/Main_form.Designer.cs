@@ -179,8 +179,9 @@
             this.train_select.Name = "train_select";
             this.train_select.Size = new System.Drawing.Size(75, 30);
             this.train_select.TabIndex = 9;
-            this.train_select.Text = "Select";
+            this.train_select.Text = "Create";
             this.train_select.UseVisualStyleBackColor = true;
+            this.train_select.Click += new System.EventHandler(this.train_select_Click);
             // 
             // trains_listBox
             // 
