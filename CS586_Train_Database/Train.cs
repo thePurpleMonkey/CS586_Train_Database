@@ -25,7 +25,7 @@ namespace CS586_Train_Database
 
         public override string ToString()
         {
-            return local_date + " " + sch_arr;
+            return local_date + " " + (sch_arr ?? sch_dep);
         }
     }
 }
