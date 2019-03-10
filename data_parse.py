@@ -1,4 +1,5 @@
 import psycopg2, psycopg2.extras, getpass, urllib.request, sys, json
+from bs4 import BeautifulSoup
 
 # Connect to database (VPN must be enabled)
 def connect():
@@ -107,11 +108,31 @@ def routes(conn):
 	c.close()
 	print("Done.")
 	
+def amenities(conn):
+	c = conn.cursor()
+
+	c.execute("SELECT code FROM train.station")
+	stations = [e[0] for e in c.fetchall()]
+
+	for station in stations:
+		r = urllib.request.Request(f"http://www.amtrak.com/stations/{station.lower()}.html", 
+			headers={'User-Agent': 'Mozilla/5.0', 'Host': 'www.amtrak.com'})
+		print("Connecting to", r.full_url)
+		response = urllib.request.urlopen(r)
+		print("Response:", response.getcode())
+		soup = BeautifulSoup(response.read().decode("utf-8"), 'html.parser')
+		print(soup.prettify())
+		for feature in soup.find(id="stationTab0").find_all("li"):
+			print(feature)
+		break
+	
+	c.close()
 
 if __name__ == "__main__":		
 	conn = connect()
 
-	stations(conn)
+	#stations(conn)
 	routes(conn)
+	#amenities(conn)
 
 	conn.close()
