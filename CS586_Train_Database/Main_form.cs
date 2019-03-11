@@ -123,7 +123,7 @@ namespace CS586_Train_Database
             stations_group.Visible = true;
         }
 
-        private void station_select_Click(object sender, EventArgs e)
+        private async void station_select_Click(object sender, EventArgs e)
         {
             trains_listBox.Items.Clear();
             selected_station = (string) stations_listBox.SelectedValue;
@@ -131,7 +131,7 @@ namespace CS586_Train_Database
             using (WebClient wc = new WebClient())
             {
                 wc.QueryString["station"] = selected_station;
-                string data = wc.DownloadString("https://asm.transitdocs.com/api/stationDepartures.php");
+                string data = await wc.DownloadStringTaskAsync("https://asm.transitdocs.com/api/stationDepartures.php");
 
                 StationDepartures departures = JsonConvert.DeserializeObject<StationDepartures>(data);
                 foreach (Train t in departures.trains)
@@ -146,7 +146,7 @@ namespace CS586_Train_Database
 
         private void train_select_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Allow the user to create an alert", "Create alert");
+            details_groupBox.Visible = true;
         }
     }
 }

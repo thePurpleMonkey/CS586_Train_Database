@@ -41,10 +41,24 @@
             this.trains_group = new System.Windows.Forms.GroupBox();
             this.train_select = new System.Windows.Forms.Button();
             this.trains_listBox = new System.Windows.Forms.ListBox();
+            this.details_groupBox = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.stations_group.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.trains_group.SuspendLayout();
+            this.details_groupBox.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // load_stations_button
@@ -69,13 +83,13 @@
             this.grid.Name = "grid";
             this.grid.ReadOnly = true;
             this.grid.RowTemplate.Height = 28;
-            this.grid.Size = new System.Drawing.Size(974, 170);
+            this.grid.Size = new System.Drawing.Size(1171, 170);
             this.grid.TabIndex = 4;
             // 
             // find_button
             // 
             this.find_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.find_button.Location = new System.Drawing.Point(858, 362);
+            this.find_button.Location = new System.Drawing.Point(1055, 362);
             this.find_button.Name = "find_button";
             this.find_button.Size = new System.Drawing.Size(126, 34);
             this.find_button.TabIndex = 5;
@@ -89,7 +103,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.search_box.Location = new System.Drawing.Point(240, 366);
             this.search_box.Name = "search_box";
-            this.search_box.Size = new System.Drawing.Size(612, 26);
+            this.search_box.Size = new System.Drawing.Size(809, 26);
             this.search_box.TabIndex = 6;
             this.search_box.KeyDown += new System.Windows.Forms.KeyEventHandler(this.search_box_KeyDown);
             this.search_box.KeyUp += new System.Windows.Forms.KeyEventHandler(this.search_box_KeyUp);
@@ -179,7 +193,7 @@
             this.train_select.Name = "train_select";
             this.train_select.Size = new System.Drawing.Size(75, 30);
             this.train_select.TabIndex = 9;
-            this.train_select.Text = "Create";
+            this.train_select.Text = "Select";
             this.train_select.UseVisualStyleBackColor = true;
             this.train_select.Click += new System.EventHandler(this.train_select_Click);
             // 
@@ -196,11 +210,146 @@
             this.trains_listBox.Size = new System.Drawing.Size(258, 264);
             this.trains_listBox.TabIndex = 8;
             // 
+            // details_groupBox
+            // 
+            this.details_groupBox.Controls.Add(this.tableLayoutPanel1);
+            this.details_groupBox.Location = new System.Drawing.Point(841, 13);
+            this.details_groupBox.Name = "details_groupBox";
+            this.details_groupBox.Size = new System.Drawing.Size(342, 330);
+            this.details_groupBox.TabIndex = 11;
+            this.details_groupBox.TabStop = false;
+            this.details_groupBox.Text = "Train details";
+            this.details_groupBox.Visible = false;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.label6, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.label8, 0, 7);
+            this.tableLayoutPanel1.Controls.Add(this.label9, 0, 8);
+            this.tableLayoutPanel1.Controls.Add(this.button1, 0, 10);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(7, 26);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 11;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.942238F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 92.05776F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(329, 298);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(101, 9);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Route name:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(115, 20);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Route number:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 29);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(112, 20);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Miles travelled:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 49);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(42, 20);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Age:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 69);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(99, 20);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Coordinates:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 89);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(76, 20);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Direction:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(3, 109);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(60, 20);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Speed:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(3, 129);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(104, 20);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Updated last:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(3, 149);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(130, 20);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "Estimated arrival:";
+            // 
+            // button1
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.button1, 2);
+            this.button1.Location = new System.Drawing.Point(7, 268);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(322, 30);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Create Alert";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Main_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(998, 592);
+            this.ClientSize = new System.Drawing.Size(1195, 592);
+            this.Controls.Add(this.details_groupBox);
             this.Controls.Add(this.trains_group);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.stations_group);
@@ -216,6 +365,9 @@
             this.stations_group.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.trains_group.ResumeLayout(false);
+            this.details_groupBox.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -235,6 +387,18 @@
         private System.Windows.Forms.GroupBox trains_group;
         private System.Windows.Forms.Button train_select;
         private System.Windows.Forms.ListBox trains_listBox;
+        private System.Windows.Forms.GroupBox details_groupBox;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button button1;
     }
 }
 
