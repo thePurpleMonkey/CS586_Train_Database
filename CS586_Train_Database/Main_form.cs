@@ -34,58 +34,7 @@ namespace CS586_Train_Database
                 conn.Close();
             }
         }
-
-        private void load_stations_button_Click(object sender, EventArgs e)
-        {
-            using (var cmd = new NpgsqlCommand("SELECT * FROM train.station", conn))
-            {
-                DataSet ds = new DataSet();
-                NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
-                da.Fill(ds);
-                grid.DataSource = ds.Tables[0];
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            search();
-        }
-
-        private void search_box_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyData == Keys.Enter)
-            {
-                search();
-                e.Handled = e.SuppressKeyPress = true;
-            }
-        }
-
-        private void search()
-        {
-            string search = search_box.Text;
-
-            using (var cmd = new NpgsqlCommand())
-            {
-                cmd.Connection = conn;
-                cmd.CommandText = "SELECT * FROM train.station WHERE UPPER(code) = UPPER(@code) OR name ILIKE '%' || @name || '%' OR city ILIKE '%' || @city || '%'";
-                cmd.Parameters.AddWithValue("city", search);
-                cmd.Parameters.AddWithValue("code", search);
-                cmd.Parameters.AddWithValue("name", search);
-                DataSet ds = new DataSet();
-                NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
-                da.Fill(ds);
-                grid.DataSource = ds.Tables[0];
-            }
-        }
-
-        private void search_box_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyData == Keys.Enter)
-            {
-                e.Handled = e.SuppressKeyPress = true;
-            }
-        }
-
+        
         private void Main_form_Load(object sender, EventArgs e)
         {
             // Populate routes
