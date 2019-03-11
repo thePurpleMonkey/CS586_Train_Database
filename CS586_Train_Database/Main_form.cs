@@ -134,7 +134,7 @@ namespace CS586_Train_Database
                 string data = await wc.DownloadStringTaskAsync("https://asm.transitdocs.com/api/stationDepartures.php");
 
                 StationDepartures departures = JsonConvert.DeserializeObject<StationDepartures>(data);
-                foreach (Train t in departures.trains)
+                foreach (Train t in departures.Trains)
                 {
                     if (t.Number == selected_route)
                         trains_listBox.Items.Add(t);
@@ -146,7 +146,23 @@ namespace CS586_Train_Database
 
         private void train_select_Click(object sender, EventArgs e)
         {
+            if (trains_listBox.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a train.", "No train selected", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             details_groupBox.Visible = true;
+            Train train = (Train) trains_listBox.SelectedItem;
+
+            route_name_label.Text = train.Name;
+            route_number_label.Text = train.Number.ToString();
+            miles_travelled_label.Text = train.Miles.ToString();
+            coordinates_label.Text = train.Lat + ", " + train.Lon;
+            direction_label.Text = train.Heading;
+            speed_label.Text = train.Speed.ToString();
+            updated_last_label.Text = train.Local_date;
+            estimated_arrival_label.Text = train.Sch_arr;
         }
     }
 }

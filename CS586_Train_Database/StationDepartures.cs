@@ -8,14 +8,14 @@ namespace CS586_Train_Database
 {
     class StationDepartures
     {
-        public string age;
-        public double lat;
-        public double lon;
-        public string local_time;
-        public string subname;
-        public string tz;
-        public DateTime update_time;
-        public Train[] trains;
+        public string Age;
+        public double Lat;
+        public double Lon;
+        public string Local_time;
+        public string Subname;
+        public string TZ;
+        public DateTime Update_time;
+        public Train[] Trains;
 
     }
 }
