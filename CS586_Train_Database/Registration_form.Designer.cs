@@ -232,6 +232,7 @@
             // 
             // Registration_form
             // 
+            this.AcceptButton = this.Submit_btn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(442, 372);
@@ -254,7 +255,12 @@
             this.Controls.Add(this.email_l);
             this.Controls.Add(this.Name_l);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Location = new System.Drawing.Point(4, 16);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(458, 411);
+            this.MinimumSize = new System.Drawing.Size(458, 411);
             this.Name = "Registration_form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registration";
             this.ResumeLayout(false);
             this.PerformLayout();
