@@ -15,6 +15,7 @@ namespace CS586_Train_Database
     public partial class Login_form : Form
     {
         NpgsqlConnection conn;
+        Main_form main_form;
 
         public Login_form()
         {
@@ -39,8 +40,12 @@ namespace CS586_Train_Database
             }
         }
 
-        private void Login_button_Click(object sender, EventArgs e)
+        private async void Login_button_Click(object sender, EventArgs e)
         {
+            Login_btn.Enabled = false;
+            NewUser_btn.Enabled = false;
+            loading_picture.Visible = true;
+
             // Build connection string
             NpgsqlConnectionStringBuilder builder = new NpgsqlConnectionStringBuilder();
             builder.Host = "dbclass.cs.pdx.edu";
@@ -61,15 +66,17 @@ namespace CS586_Train_Database
             conn = new NpgsqlConnection(builder.ConnectionString);
             try
             {
-                conn.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT count(*) FROM train.user where email = '" + email_txt.Text + "'and password = '" + Password_txt.Text + "'", conn);
+                await conn.OpenAsync();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(*) FROM train.user WHERE email = @email AND password = @password", conn);
+                cmd.Parameters.AddWithValue("email", email_txt.Text);
+                cmd.Parameters.AddWithValue("password", Password_txt.Text);
+
                 Int64 count = (Int64)cmd.ExecuteScalar();
                 if (count == 1)
                 {
-                    this.Visible = false;
-                    Main_form f1 = new Main_form(conn);
-                    f1.ShowDialog();
-                    this.Close();
+                    main_form = new Main_form(conn);
+                    Close();
+                    main_form.Show();
                 }
                 else
                 {
@@ -80,30 +87,31 @@ namespace CS586_Train_Database
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-                MessageBox.Show("Unable to connect to database. Please make sure VPN is enabled and try again.", "ERROR: Unable to connect to database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Unable to connect to database. Please make sure VPN is enabled and try again.\n" + ex.Message, "ERROR: Unable to connect to database", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 conn.Close();
-                this.Close();
             }
-                
+            finally
+            {
+                Login_btn.Enabled = true;
+                NewUser_btn.Enabled = true;
+                loading_picture.Visible = false;
             }
+        }
 
         private void Registration_button_Click(object sender, EventArgs e)
         {
-            this.Visible=false;
+            Hide();
             Registration_form Reg1 = new Registration_form();
             Reg1.ShowDialog();
-            this.Visible = true;
+            Show();
         }
 
-        private void label3_Click_1(object sender, EventArgs e)
+        private void Login_form_FormClosed(object sender, FormClosedEventArgs e)
         {
-
-        }
-
-        private void Login_form_Load(object sender, EventArgs e)
-        {
-
+            if (main_form == null)
+            {
+                Application.Exit();
+            }
         }
     }
 }

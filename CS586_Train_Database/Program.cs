@@ -16,7 +16,9 @@ namespace CS586_Train_Database
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login_form());
+            Login_form form = new Login_form();
+            form.Show();
+            Application.Run();
         }
     }
 }

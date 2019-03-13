@@ -36,6 +36,8 @@
             this.Login_btn = new System.Windows.Forms.Button();
             this.CS586 = new System.Windows.Forms.Label();
             this.NewUser_btn = new System.Windows.Forms.Button();
+            this.loading_picture = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.loading_picture)).BeginInit();
             this.SuspendLayout();
             // 
             // email_l
@@ -90,7 +92,6 @@
             this.CS586.Size = new System.Drawing.Size(166, 68);
             this.CS586.TabIndex = 6;
             this.CS586.Text = "CS 586";
-            this.CS586.Click += new System.EventHandler(this.label3_Click_1);
             // 
             // NewUser_btn
             // 
@@ -102,11 +103,23 @@
             this.NewUser_btn.UseVisualStyleBackColor = true;
             this.NewUser_btn.Click += new System.EventHandler(this.Registration_button_Click);
             // 
+            // loading_picture
+            // 
+            this.loading_picture.Image = ((System.Drawing.Image)(resources.GetObject("loading_picture.Image")));
+            this.loading_picture.Location = new System.Drawing.Point(351, 322);
+            this.loading_picture.Name = "loading_picture";
+            this.loading_picture.Size = new System.Drawing.Size(64, 64);
+            this.loading_picture.TabIndex = 7;
+            this.loading_picture.TabStop = false;
+            this.loading_picture.Visible = false;
+            // 
             // Login_form
             // 
+            this.AcceptButton = this.Login_btn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(626, 418);
+            this.Controls.Add(this.loading_picture);
             this.Controls.Add(this.CS586);
             this.Controls.Add(this.NewUser_btn);
             this.Controls.Add(this.Login_btn);
@@ -117,7 +130,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Login_form";
             this.Text = "Welcome to Amtrak project";
-            this.Load += new System.EventHandler(this.Login_form_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Login_form_FormClosed);
+            ((System.ComponentModel.ISupportInitialize)(this.loading_picture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,5 +146,6 @@
         private System.Windows.Forms.Button Login_btn;
         private System.Windows.Forms.Label CS586;
         private System.Windows.Forms.Button NewUser_btn;
+        private System.Windows.Forms.PictureBox loading_picture;
     }
 }

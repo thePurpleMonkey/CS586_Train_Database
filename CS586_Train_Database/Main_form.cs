@@ -1,15 +1,8 @@
 ﻿using Newtonsoft.Json;
 using Npgsql;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CS586_Train_Database
@@ -29,61 +22,12 @@ namespace CS586_Train_Database
         
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (conn != null && conn.State != System.Data.ConnectionState.Closed)
+            if (conn != null && conn.State != ConnectionState.Closed)
             {
                 conn.Close();
             }
-        }
 
-        private void load_stations_button_Click(object sender, EventArgs e)
-        {
-            using (var cmd = new NpgsqlCommand("SELECT * FROM train.station", conn))
-            {
-                DataSet ds = new DataSet();
-                NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
-                da.Fill(ds);
-                grid.DataSource = ds.Tables[0];
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            search();
-        }
-
-        private void search_box_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyData == Keys.Enter)
-            {
-                search();
-                e.Handled = e.SuppressKeyPress = true;
-            }
-        }
-
-        private void search()
-        {
-            string search = search_box.Text;
-
-            using (var cmd = new NpgsqlCommand())
-            {
-                cmd.Connection = conn;
-                cmd.CommandText = "SELECT * FROM train.station WHERE UPPER(code) = UPPER(@code) OR name ILIKE '%' || @name || '%' OR city ILIKE '%' || @city || '%'";
-                cmd.Parameters.AddWithValue("city", search);
-                cmd.Parameters.AddWithValue("code", search);
-                cmd.Parameters.AddWithValue("name", search);
-                DataSet ds = new DataSet();
-                NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
-                da.Fill(ds);
-                grid.DataSource = ds.Tables[0];
-            }
-        }
-
-        private void search_box_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyData == Keys.Enter)
-            {
-                e.Handled = e.SuppressKeyPress = true;
-            }
+            Application.Exit();
         }
 
         private void Main_form_Load(object sender, EventArgs e)
@@ -125,6 +69,8 @@ namespace CS586_Train_Database
 
         private async void station_select_Click(object sender, EventArgs e)
         {
+            station_select.Enabled = false;
+            loading_picture.Visible = true;
             trains_listBox.Items.Clear();
             selected_station = (string) stations_listBox.SelectedValue;
 
@@ -141,7 +87,9 @@ namespace CS586_Train_Database
                 }
             }
 
+            loading_picture.Visible = false;
             trains_group.Visible = true;
+            station_select.Enabled = true;
         }
 
         private void train_select_Click(object sender, EventArgs e)
@@ -163,6 +111,12 @@ namespace CS586_Train_Database
             speed_label.Text = train.Speed.ToString();
             updated_last_label.Text = train.Local_date;
             estimated_arrival_label.Text = train.Sch_arr;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            StationSearchForm stationSearch = new StationSearchForm(conn);
+            stationSearch.ShowDialog(this);
         }
     }
 }

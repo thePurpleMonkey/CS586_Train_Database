@@ -42,6 +42,19 @@ def stations(conn):
 	c = conn.cursor()
 
 	print(f"Uploading {len(rows)} records...")
+	c.execute(
+		"""
+		CREATE TABLE IF NOT EXISTS train.station (
+			code character(3) PRIMARY KEY,
+			name varchar(255),
+			address varchar(255),
+			city varchar(63),
+			state character(2),
+			lat double precision,
+			lon double precision
+		)
+		""", rows
+	)
 	psycopg2.extras.execute_batch(c,
 		"""
 			INSERT INTO train.station VALUES (%(code)s, %(name)s, %(address)s, %(city)s, %(state)s, %(lat)s, %(lon)s)
