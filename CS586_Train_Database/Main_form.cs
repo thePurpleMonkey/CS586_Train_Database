@@ -83,6 +83,8 @@ namespace CS586_Train_Database
             }
 
             stations_group.Visible = true;
+            trains_group.Visible = false;
+            details_groupBox.Visible = false;
         }
 
         private async void station_select_Click(object sender, EventArgs e)
@@ -202,6 +204,7 @@ namespace CS586_Train_Database
             loading_picture.Visible = false;
             trains_group.Visible = true;
             station_select.Enabled = true;
+            details_groupBox.Visible = false;
         }
 
         private void train_select_Click(object sender, EventArgs e)
