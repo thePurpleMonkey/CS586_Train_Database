@@ -1,13 +1,6 @@
 ﻿using Npgsql;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.IO;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CS586_Train_Database
@@ -68,13 +61,13 @@ namespace CS586_Train_Database
             {
                 await conn.OpenAsync();
                 NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(*) FROM train.user WHERE email = @email AND password = @password", conn);
-                cmd.Parameters.AddWithValue("email", email_txt.Text);
+                cmd.Parameters.AddWithValue("email", email_txt.Text.ToLower());
                 cmd.Parameters.AddWithValue("password", Password_txt.Text);
 
                 Int64 count = (Int64)cmd.ExecuteScalar();
                 if (count == 1)
                 {
-                    main_form = new Main_form(conn);
+                    main_form = new Main_form(conn, email_txt.Text.ToLower());
                     Close();
                     main_form.Show();
                 }
@@ -82,6 +75,7 @@ namespace CS586_Train_Database
                 {
                     MessageBox.Show("Wrong credential", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     conn.Close();
+                    Password_txt.SelectAll();
                 }
 
             }

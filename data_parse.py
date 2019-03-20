@@ -6,7 +6,7 @@ def connect():
 	options = {}
 
 	options["dbname"] = options["user"] = "w19wdb19"
-	options["password"] = getpass.getpass("Please enter your password: ")
+	options["password"] = "sqliteIsBetter" #getpass.getpass("Please enter your password: ")
 
 	print("Connecting to database...")
 	try:

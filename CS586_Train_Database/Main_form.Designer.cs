@@ -41,11 +41,12 @@
             this.details_groupBox = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.estimated_arrival_label = new System.Windows.Forms.Label();
-            this.updated_last_label = new System.Windows.Forms.Label();
             this.speed_label = new System.Windows.Forms.Label();
             this.direction_label = new System.Windows.Forms.Label();
             this.coordinates_label = new System.Windows.Forms.Label();
             this.miles_travelled_label = new System.Windows.Forms.Label();
+            this.train_city_label = new System.Windows.Forms.Label();
+            this.route_number_label = new System.Windows.Forms.Label();
             this.route_name_label = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -53,18 +54,20 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.route_number_label = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.loading_picture = new System.Windows.Forms.PictureBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.alerts_listBox = new System.Windows.Forms.ListBox();
             this.stations_group.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.trains_group.SuspendLayout();
             this.details_groupBox.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.loading_picture)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // routes_listBox
@@ -76,16 +79,18 @@
             this.routes_listBox.ItemHeight = 20;
             this.routes_listBox.Location = new System.Drawing.Point(6, 25);
             this.routes_listBox.Name = "routes_listBox";
-            this.routes_listBox.Size = new System.Drawing.Size(260, 264);
+            this.routes_listBox.Size = new System.Drawing.Size(260, 544);
             this.routes_listBox.TabIndex = 7;
             // 
             // stations_group
             // 
+            this.stations_group.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.stations_group.Controls.Add(this.station_select);
             this.stations_group.Controls.Add(this.stations_listBox);
             this.stations_group.Location = new System.Drawing.Point(288, 12);
             this.stations_group.Name = "stations_group";
-            this.stations_group.Size = new System.Drawing.Size(270, 331);
+            this.stations_group.Size = new System.Drawing.Size(270, 623);
             this.stations_group.TabIndex = 9;
             this.stations_group.TabStop = false;
             this.stations_group.Text = "Stations";
@@ -93,7 +98,8 @@
             // 
             // station_select
             // 
-            this.station_select.Location = new System.Drawing.Point(98, 295);
+            this.station_select.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.station_select.Location = new System.Drawing.Point(98, 587);
             this.station_select.Name = "station_select";
             this.station_select.Size = new System.Drawing.Size(75, 30);
             this.station_select.TabIndex = 9;
@@ -110,23 +116,26 @@
             this.stations_listBox.ItemHeight = 20;
             this.stations_listBox.Location = new System.Drawing.Point(6, 25);
             this.stations_listBox.Name = "stations_listBox";
-            this.stations_listBox.Size = new System.Drawing.Size(258, 264);
+            this.stations_listBox.Size = new System.Drawing.Size(258, 544);
             this.stations_listBox.TabIndex = 8;
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox2.Controls.Add(this.route_select);
             this.groupBox2.Controls.Add(this.routes_listBox);
             this.groupBox2.Location = new System.Drawing.Point(10, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(272, 331);
+            this.groupBox2.Size = new System.Drawing.Size(272, 623);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Routes";
             // 
             // route_select
             // 
-            this.route_select.Location = new System.Drawing.Point(93, 295);
+            this.route_select.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.route_select.Location = new System.Drawing.Point(93, 587);
             this.route_select.Name = "route_select";
             this.route_select.Size = new System.Drawing.Size(75, 30);
             this.route_select.TabIndex = 8;
@@ -136,11 +145,13 @@
             // 
             // trains_group
             // 
+            this.trains_group.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.trains_group.Controls.Add(this.train_select);
             this.trains_group.Controls.Add(this.trains_listBox);
             this.trains_group.Location = new System.Drawing.Point(564, 12);
             this.trains_group.Name = "trains_group";
-            this.trains_group.Size = new System.Drawing.Size(270, 331);
+            this.trains_group.Size = new System.Drawing.Size(270, 623);
             this.trains_group.TabIndex = 10;
             this.trains_group.TabStop = false;
             this.trains_group.Text = "Trains";
@@ -148,7 +159,8 @@
             // 
             // train_select
             // 
-            this.train_select.Location = new System.Drawing.Point(98, 295);
+            this.train_select.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.train_select.Location = new System.Drawing.Point(98, 587);
             this.train_select.Name = "train_select";
             this.train_select.Size = new System.Drawing.Size(75, 30);
             this.train_select.TabIndex = 9;
@@ -166,7 +178,7 @@
             this.trains_listBox.ItemHeight = 20;
             this.trains_listBox.Location = new System.Drawing.Point(6, 25);
             this.trains_listBox.Name = "trains_listBox";
-            this.trains_listBox.Size = new System.Drawing.Size(258, 264);
+            this.trains_listBox.Size = new System.Drawing.Size(258, 544);
             this.trains_listBox.TabIndex = 8;
             // 
             // details_groupBox
@@ -186,25 +198,25 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.94529F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.05471F));
             this.tableLayoutPanel1.Controls.Add(this.estimated_arrival_label, 1, 7);
-            this.tableLayoutPanel1.Controls.Add(this.updated_last_label, 1, 6);
-            this.tableLayoutPanel1.Controls.Add(this.speed_label, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.direction_label, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.coordinates_label, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.miles_travelled_label, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.speed_label, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.direction_label, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.coordinates_label, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.miles_travelled_label, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.train_city_label, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.route_number_label, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.route_name_label, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label6, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.label8, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.label6, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.label9, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.button1, 0, 9);
-            this.tableLayoutPanel1.Controls.Add(this.route_number_label, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(7, 26);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 10;
+            this.tableLayoutPanel1.RowCount = 9;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -228,19 +240,10 @@
             this.estimated_arrival_label.TabIndex = 20;
             this.estimated_arrival_label.Text = "label10";
             // 
-            // updated_last_label
-            // 
-            this.updated_last_label.AutoSize = true;
-            this.updated_last_label.Location = new System.Drawing.Point(141, 140);
-            this.updated_last_label.Name = "updated_last_label";
-            this.updated_last_label.Size = new System.Drawing.Size(60, 20);
-            this.updated_last_label.TabIndex = 19;
-            this.updated_last_label.Text = "label10";
-            // 
             // speed_label
             // 
             this.speed_label.AutoSize = true;
-            this.speed_label.Location = new System.Drawing.Point(141, 120);
+            this.speed_label.Location = new System.Drawing.Point(141, 140);
             this.speed_label.Name = "speed_label";
             this.speed_label.Size = new System.Drawing.Size(60, 20);
             this.speed_label.TabIndex = 18;
@@ -249,7 +252,7 @@
             // direction_label
             // 
             this.direction_label.AutoSize = true;
-            this.direction_label.Location = new System.Drawing.Point(141, 100);
+            this.direction_label.Location = new System.Drawing.Point(141, 120);
             this.direction_label.Name = "direction_label";
             this.direction_label.Size = new System.Drawing.Size(60, 20);
             this.direction_label.TabIndex = 17;
@@ -258,7 +261,7 @@
             // coordinates_label
             // 
             this.coordinates_label.AutoSize = true;
-            this.coordinates_label.Location = new System.Drawing.Point(141, 80);
+            this.coordinates_label.Location = new System.Drawing.Point(141, 100);
             this.coordinates_label.Name = "coordinates_label";
             this.coordinates_label.Size = new System.Drawing.Size(60, 20);
             this.coordinates_label.TabIndex = 16;
@@ -267,11 +270,29 @@
             // miles_travelled_label
             // 
             this.miles_travelled_label.AutoSize = true;
-            this.miles_travelled_label.Location = new System.Drawing.Point(141, 40);
+            this.miles_travelled_label.Location = new System.Drawing.Point(141, 60);
             this.miles_travelled_label.Name = "miles_travelled_label";
             this.miles_travelled_label.Size = new System.Drawing.Size(60, 20);
             this.miles_travelled_label.TabIndex = 14;
             this.miles_travelled_label.Text = "label10";
+            // 
+            // train_city_label
+            // 
+            this.train_city_label.AutoSize = true;
+            this.train_city_label.Location = new System.Drawing.Point(141, 40);
+            this.train_city_label.Name = "train_city_label";
+            this.train_city_label.Size = new System.Drawing.Size(60, 20);
+            this.train_city_label.TabIndex = 22;
+            this.train_city_label.Text = "label10";
+            // 
+            // route_number_label
+            // 
+            this.route_number_label.AutoSize = true;
+            this.route_number_label.Location = new System.Drawing.Point(141, 20);
+            this.route_number_label.Name = "route_number_label";
+            this.route_number_label.Size = new System.Drawing.Size(60, 20);
+            this.route_number_label.TabIndex = 13;
+            this.route_number_label.Text = "label10";
             // 
             // route_name_label
             // 
@@ -303,7 +324,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 40);
+            this.label3.Location = new System.Drawing.Point(3, 60);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(105, 40);
             this.label3.TabIndex = 2;
@@ -312,7 +333,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 80);
+            this.label5.Location = new System.Drawing.Point(3, 100);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(99, 20);
             this.label5.TabIndex = 4;
@@ -321,7 +342,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 100);
+            this.label6.Location = new System.Drawing.Point(3, 120);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(76, 20);
             this.label6.TabIndex = 5;
@@ -330,20 +351,11 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 120);
+            this.label7.Location = new System.Drawing.Point(3, 140);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(60, 20);
             this.label7.TabIndex = 6;
             this.label7.Text = "Speed:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 140);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(104, 20);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Updated last:";
             // 
             // label9
             // 
@@ -363,19 +375,21 @@
             this.button1.TabIndex = 9;
             this.button1.Text = "Create Alert";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // route_number_label
+            // label4
             // 
-            this.route_number_label.AutoSize = true;
-            this.route_number_label.Location = new System.Drawing.Point(141, 20);
-            this.route_number_label.Name = "route_number_label";
-            this.route_number_label.Size = new System.Drawing.Size(60, 20);
-            this.route_number_label.TabIndex = 13;
-            this.route_number_label.Text = "label10";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 40);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(39, 20);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "City:";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(13, 351);
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button2.Location = new System.Drawing.Point(13, 643);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(208, 32);
             this.button2.TabIndex = 12;
@@ -385,19 +399,45 @@
             // 
             // loading_picture
             // 
+            this.loading_picture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.loading_picture.Image = ((System.Drawing.Image)(resources.GetObject("loading_picture.Image")));
-            this.loading_picture.Location = new System.Drawing.Point(407, 349);
+            this.loading_picture.Location = new System.Drawing.Point(407, 641);
             this.loading_picture.Name = "loading_picture";
             this.loading_picture.Size = new System.Drawing.Size(32, 32);
             this.loading_picture.TabIndex = 21;
             this.loading_picture.TabStop = false;
             this.loading_picture.Visible = false;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.Controls.Add(this.alerts_listBox);
+            this.groupBox1.Location = new System.Drawing.Point(841, 350);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(342, 323);
+            this.groupBox1.TabIndex = 22;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Alerts";
+            // 
+            // alerts_listBox
+            // 
+            this.alerts_listBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.alerts_listBox.FormattingEnabled = true;
+            this.alerts_listBox.ItemHeight = 20;
+            this.alerts_listBox.Location = new System.Drawing.Point(7, 26);
+            this.alerts_listBox.Name = "alerts_listBox";
+            this.alerts_listBox.Size = new System.Drawing.Size(329, 284);
+            this.alerts_listBox.TabIndex = 0;
+            // 
             // Main_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1195, 395);
+            this.ClientSize = new System.Drawing.Size(1195, 687);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.loading_picture);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.details_groupBox);
@@ -415,6 +455,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.loading_picture)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -437,11 +478,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label estimated_arrival_label;
-        private System.Windows.Forms.Label updated_last_label;
         private System.Windows.Forms.Label speed_label;
         private System.Windows.Forms.Label direction_label;
         private System.Windows.Forms.Label coordinates_label;
@@ -450,6 +489,10 @@
         private System.Windows.Forms.Label route_number_label;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox loading_picture;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ListBox alerts_listBox;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label train_city_label;
     }
 }
 
